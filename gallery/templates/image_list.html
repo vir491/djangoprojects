@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<title>{% block head_title %} Gallery {% endblock head_title%}</title>
+
+<div class="col-sm-6 col-sm-offset-3">
+    <h1>{{ title }} <a href="upload" class="btn btn-primary" role="button">Загрузить изображение</a> </h1>
+<div class="row">
+  {% for obj in object_list %}
+
+  <div class="col-sm-12">
+    <div class="thumbnail">
+      <a href="{{ obj.pic.url }}"> <img src="{{ obj.pic.url }}" class="img-responsive" ></a>
+      <div class="caption">
+        <p>Комментарий: {{ obj.text}}</p>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+</div>
+{% endblock content%}
